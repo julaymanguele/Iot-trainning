@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>IoT - Training</title>
+  </head>
+  <body>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+       const firebaseConfig = {
+    apiKey: "AIzaSyBXWjf6qhGns6W_HXzo3fDlLrWgwUshLjw",
+    authDomain: "elson-lucas.firebaseapp.com",
+    projectId: "elson-lucas",
+    storageBucket: "elson-lucas.appspot.com",
+    messagingSenderId: "850207268593",
+    appId: "1:850207268593:web:13d8e19c3addd4ca579350",
+    measurementId: "G-RTJS3EFJZZ"
+  };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      function ledOn() {
+        firebase.database().ref("QUARTO_1").set({
+          estado: "LIGADA",
+        });
+      }
+
+      function ledOff() {
+        firebase.database().ref("QUARTO_1").set({
+          estado: "DESLIGADA",
+        });
+      }
+    </script>
+
+    <div class="pageBody">
+      <img style="width: 100%" src="./assets/logo.png" alt="Logo" />
+
+      <section class="titleContainer">
+        <h2>Bem-vindo ao Smart Light</h2>
+        <p>
+          Você pode ligar ou desligar as lampadas da sua casa através dos botoes
+          a baixo.
+        </p>
+      </section>
+
+      <section class="buttonAreaContainer">
+        <button onclick="ledOn()">
+          <img src="./assets/icon.png" alt="light state" />
+          <p>Quarto 1</p>
+        </button>
+        <button onclick="ledOff()">
+          <img src="./assets/icon.png" alt="light state" />
+          <p>Quarto 2</p>
+        </button>
+        <button>
+          <img src="./assets/icon.png" alt="light state" />
+          <p>Quarto 3</p>
+        </button>
+        <button>
+          <img src="./assets/icon.png" alt="light state" />
+          <p>Quarto 4</p>
+        </button>
+      </section>
+
+      <footer>
+        <p>Sistema básico de gestão de uma casa inteligente.</p>
+        <p>Supported by TurboKode.lda</p>
+      </footer>
+    </div>
+  </body>
+</html>
